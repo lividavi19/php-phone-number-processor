@@ -22,7 +22,7 @@ class PhoneNumberProcessor
      * Clean and return the provided phone number if valid.
      * 
      * @param string $phoneNumber The phone number to clean.
-     * @return string|bool Cleaned phone number if valid, false otherwise.
+     * @return string|null Cleaned phone number if valid, null otherwise.
      */
     public static function clean(string $phoneNumber)
     {
@@ -32,8 +32,8 @@ class PhoneNumberProcessor
             return self::stripCharacters($phoneNumber);
         }
 
-        // Return false if not valid
-        return false;
+        // Return null if not valid
+        return null;
     }
 
     /**
