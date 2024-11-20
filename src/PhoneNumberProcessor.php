@@ -8,7 +8,7 @@ class PhoneNumberProcessor
      * @param string $phoneNumber The phone number to validate.
      * @return bool True if valid, false otherwise.
      */
-    public static function isValid($phoneNumber)
+    public static function isValid(string $phoneNumber) : bool
     {
         // Remove unwanted characters to check validity
         $cleanedNumber = self::stripCharacters($phoneNumber);
@@ -24,7 +24,7 @@ class PhoneNumberProcessor
      * @param string $phoneNumber The phone number to clean.
      * @return string|bool Cleaned phone number if valid, false otherwise.
      */
-    public static function clean($phoneNumber)
+    public static function clean(string $phoneNumber)
     {
         // First validate the number
         if (self::isValid($phoneNumber)) {
@@ -42,7 +42,7 @@ class PhoneNumberProcessor
      * @param string $phoneNumber The phone number to clean.
      * @return string Phone number with only digits and a possible '+'.
      */
-    private static function stripCharacters($phoneNumber)
+    private static function stripCharacters(string $phoneNumber) : string
     {
         return preg_replace('/[^\d+]/', '', $phoneNumber);
     }
