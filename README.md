@@ -11,21 +11,21 @@ This tool primarily aim to cover local Tanzanian phone numbers ie numbers that s
 - Supports both international (+) and local formats (starting with 0).
 - Designed for simplicity and flexibility.
 
-## Why Use PhoneNumberUtility?
+## Why Use Phone Number Processor?
 - Lightweight: A focused tool without unnecessary bloat.
 - Reliable: Validates numbers according to industry-standard formats.
 - Simple: Easy to integrate into any PHP application.
 
 ## Usage
 ### Validating phone number
-To check if a phone number is valid.
+To check if a phone number is valid use static method `isValid()` of PhoneNumberProcessor tool. This returns a `boolen` value depending wheteher a phone number supplied is valid or not.
 ```
 <?php
 
-require_once 'src/PhoneNumberUtility.php';
+require_once 'src/PhoneNumberProcessor.php';
 
 $phoneNumber = '+255 687-123-123';
-$isValid = PhoneNumberUtility::isValid($phoneNumber);
+$isValid = PhoneNumberProcessor::isValid($phoneNumber);
 
 if ($isValid) {
     echo "Phone number is valid.";
@@ -35,14 +35,14 @@ if ($isValid) {
 ```
 
 ### Clean phone number
-To clean a phone number (remove spaces, dashes, etc.)
+To clean a phone number (remove spaces, dashes, etc.) use static method `clean()` of this tool. This returns a `String` value representing a cleaned phone number. However if suplied phone number is not valid this method returns `null`
 ```
 <?php
 
-require_once 'src/PhoneNumberUtility.php';
+require_once 'src/PhoneNumberProcessor.php';
 
 $phoneNumber = '+255 687-123-123';
-$cleanedNumber = PhoneNumberUtility::clean($phoneNumber);
+$cleanedNumber = PhoneNumberProcessor::clean($phoneNumber);
 
 if ($cleanedNumber !== null) {
     echo "Cleaned phone number: $cleanedNumber";
@@ -51,7 +51,7 @@ if ($cleanedNumber !== null) {
 }
 ```
 
-- For more detailed examples, check the `examples/example-use-case.php` file in the repository.
+- For more detailed examples, check the `examples/example-use-case.php` file in this repository.
 
 ## Contributing
 Contributions are welcome! If you have suggestions for improvements or additional features, please open an issue or submit a pull request.
